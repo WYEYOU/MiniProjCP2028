@@ -1,180 +1,261 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MiniProject.ViewModel;assembly=MiniProject"
+             xmlns:model="clr-namespace:MiniProject.Model"
+             x:DataType="viewmodel:HomeViewModel"
              x:Class="MiniProject.Pages.HomePage"
+             Shell.NavBarIsVisible="False"
              Title="HomePage"
              BackgroundColor="#2D0C78">
-    <ScrollView>
-        <VerticalStackLayout Padding="20">
+       <ScrollView>
+              <VerticalStackLayout Padding="20">
 
-            <!-- Header Section -->
-            <VerticalStackLayout HorizontalOptions="Center"
-                                 Spacing="10">
-                <Image Source="logo_full.png"
-                       HeightRequest="120"/>
-                <Label Text="ยินดีต้อนรับนิสิตทุกท่านสู่ระบบบริการการศึกษา"
-                       TextColor="White"
-                       FontAttributes="Bold"
-                       FontSize="25"
-                       HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
-                <Label Text="Welcome to Registration Cipher Logic University"
-                       TextColor="White"
-                       FontAttributes="Bold"
-                       FontSize="12"
-                       HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"/>
-            </VerticalStackLayout>
+                     <!-- Header Section -->
+                     <VerticalStackLayout HorizontalOptions="Center"
+                                          Spacing="10">
+                            <Image Source="logo_full.png"
+                                   HeightRequest="120"/>
+                            <Label Text="ยินดีต้อนรับนิสิตทุกท่านสู่ระบบบริการการศึกษา"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="25"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Welcome to Registration Cipher Logic University"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                     </VerticalStackLayout>
 
-            <!-- Student Info Section -->
-            <Border BackgroundColor="White"
-                    StrokeShape="RoundRectangle 20,20,20,20"
-                    StrokeThickness="1"
-                    Padding="15"
-                    Margin="20">
-                <VerticalStackLayout Spacing="10"
-                                     HorizontalOptions="Center">
-                    <!-- Profile Image -->
-                    <Border StrokeShape="Ellipse"
-                            HeightRequest="102"
-                            WidthRequest="102"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Center">
-                        <Image Source="user.jpg"
-                               HeightRequest="100"
-                               WidthRequest="100"
-                               Aspect="AspectFit"/>
-                    </Border>
+                     <!-- Student Info Section -->
+                     <Border BackgroundColor="White"
+                             StrokeShape="RoundRectangle 20,20,20,20"
+                             StrokeThickness="1"
+                             Padding="15"
+                             Margin="20">
+                            <VerticalStackLayout Spacing="10"
+                                                 HorizontalOptions="Center">
+                                   <!-- Profile Image -->
+                                   <Border StrokeShape="Ellipse"
+                                           HeightRequest="102"
+                                           WidthRequest="102"
+                                           BackgroundColor="Transparent"
+                                           HorizontalOptions="Center">
+                                          <Image Source="{Binding User.Student.Img}"
+                                                 HeightRequest="100"
+                                                 WidthRequest="100"
+                                                 Aspect="AspectFit"/>
+                                   </Border>
 
-                    <!-- Student Info -->
-                    <VerticalStackLayout Spacing="5"
-                                         HorizontalOptions="Center">
-                        <Label Text="รหัสนิสิต: 65011212028"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="ชื่อ-นามสกุล: นายยุทธนา อุทธโกสม"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="สถานภาพปัจจุบัน: สมบูรณ์"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="GPAX: 3.57"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                    </VerticalStackLayout>
+                                   <!-- Student Info -->
+                                   <VerticalStackLayout Spacing="5"
+                                                        HorizontalOptions="Center">
 
-                    <!-- Additional Info -->
-                    <VerticalStackLayout Spacing="5"
-                                         HorizontalOptions="Center">
-                        <Label Text="คณะ: วิทยาการสารสนเทศ"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="หลักสูตร: วิทยาการคอมพิวเตอร์"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="จบการศึกษาจาก: โรงเรียนปทุมเทพวิทยาคม"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="ที่ปรึกษา: ผศ. พิมลรัตน์ อ้วนศรีเมือง"
-                               TextColor="#1C0263"
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               HorizontalTextAlignment="Center"/>
-                    </VerticalStackLayout>
-                </VerticalStackLayout>
-            </Border>
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="รหัสนิสิต:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Id}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="ชื่อ - นามสกุล:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Name}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="สถานภาพปัจจุบัน:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Status}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="GPAX:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Gpax}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                   </VerticalStackLayout>
+
+                                   <!-- Additional Info -->
+                                   <VerticalStackLayout Spacing="5"
+                                                        HorizontalOptions="Center">
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="คณะ:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Faculty}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="หลักสูตร:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Program}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="จบการศึกษาจาก:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.GraduatedFrom}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+
+                                          <HorizontalStackLayout HorizontalOptions="Center"
+                                                                 Spacing="5">
+                                                 <Label Text="ที่ปรึกษา:"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+
+                                                 <Label Text="{Binding User.Student.Advisor}"
+                                                        TextColor="#1C0263"
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"/>
+                                          </HorizontalStackLayout>
+                                   </VerticalStackLayout>
+                            </VerticalStackLayout>
+                     </Border>
 
 
-            <!-- Menu Section -->
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Spacing="50">
-                <VerticalStackLayout HorizontalOptions="Center">
-                    <Border StrokeShape="Ellipse"
-                            HeightRequest="82"
-                            WidthRequest="82"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Center">
-                        <Image Source="home.png"
-                               HeightRequest="80"
-                               WidthRequest="80"
-                               Aspect="AspectFill"/>
-                    </Border>
-                    <Label Text="หน้าหลัก"
-                           TextColor="White"
-                           FontAttributes="Bold"
-                           FontSize="14"
-                           HorizontalOptions="Center"/>
-                </VerticalStackLayout>
+                     <!-- Menu Section -->
+                     <HorizontalStackLayout HorizontalOptions="Center"
+                                            Spacing="50">
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                   <Border StrokeShape="Ellipse"
+                                           HeightRequest="82"
+                                           WidthRequest="82"
+                                           BackgroundColor="Transparent"
+                                           HorizontalOptions="Center">
+                                          <Image Source="home.png"
+                                                 HeightRequest="80"
+                                                 WidthRequest="80"
+                                                 Aspect="AspectFill"/>
+                                   </Border>
+                                   <Label Text="หน้าหลัก"
+                                          TextColor="White"
+                                          FontAttributes="Bold"
+                                          FontSize="14"
+                                          HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
 
-                <VerticalStackLayout HorizontalOptions="Center">
-                    <Border StrokeShape="Ellipse"
-                            HeightRequest="82"
-                            WidthRequest="82"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Center">
-                        <Image Source="reg.png"
-                               HeightRequest="80"
-                               WidthRequest="80"
-                               Aspect="AspectFill"/>
-                    </Border>
-                    <Label Text="ผลการลงทะเบียน"
-                           TextColor="White"
-                           FontAttributes="Bold"
-                           FontSize="14"
-                           HorizontalOptions="Center"/>
-                </VerticalStackLayout>
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                   <Border StrokeShape="Ellipse"
+                                           HeightRequest="82"
+                                           WidthRequest="82"
+                                           BackgroundColor="Transparent"
+                                           HorizontalOptions="Center">
+                                          <Image Source="reg.png"
+                                                 HeightRequest="80"
+                                                 WidthRequest="80"
+                                                 Aspect="AspectFill">
+                                                 <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding NavigateToRegisterCommand}"/>
+                                                 </Image.GestureRecognizers>
+                                          </Image>
+                                   </Border>
+                                   <Label Text="ผลการลงทะเบียน"
+                                          TextColor="White"
+                                          FontAttributes="Bold"
+                                          FontSize="14"
+                                          HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
 
-                <VerticalStackLayout HorizontalOptions="Center">
-                    <Border StrokeShape="Ellipse"
-                            HeightRequest="82"
-                            WidthRequest="82"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Center">
-                        <Image Source="search.png"
-                               HeightRequest="80"
-                               WidthRequest="80"
-                               Aspect="AspectFill"/>
-                    </Border>
-                    <Label Text="ลงทะเบียนเรียน"
-                           TextColor="White"
-                           FontAttributes="Bold"
-                           FontSize="14"
-                           HorizontalOptions="Center"/>
-                </VerticalStackLayout>
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                   <Border StrokeShape="Ellipse"
+                                           HeightRequest="82"
+                                           WidthRequest="82"
+                                           BackgroundColor="Transparent"
+                                           HorizontalOptions="Center">
+                                          <Image Source="search.png"
+                                                 HeightRequest="80"
+                                                 WidthRequest="80"
+                                                 Aspect="AspectFill">
+                                                 <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding NavigateToRegisterSearchCommand}"/>
+                                                 </Image.GestureRecognizers>
+                                          </Image>
+                                   </Border>
+                                   <Label Text="ลงทะเบียนเรียน"
+                                          TextColor="White"
+                                          FontAttributes="Bold"
+                                          FontSize="14"
+                                          HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
 
-                <VerticalStackLayout HorizontalOptions="Center">
-                    <Border StrokeShape="Ellipse"
-                            HeightRequest="82"
-                            WidthRequest="82"
-                            BackgroundColor="Transparent"
-                            HorizontalOptions="Center">
-                        <Image Source="logout.png"
-                               HeightRequest="80"
-                               WidthRequest="80"
-                               Aspect="AspectFill"/>
-                    </Border>
-                    <Label Text="ออกจากระบบ"
-                           TextColor="White"
-                           FontAttributes="Bold"
-                           FontSize="14"
-                           HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                   <Border StrokeShape="Ellipse"
+                                           HeightRequest="82"
+                                           WidthRequest="82"
+                                           BackgroundColor="Transparent"
+                                           HorizontalOptions="Center">
+                                          <Image Source="logout.png"
+                                                 HeightRequest="80"
+                                                 WidthRequest="80"
+                                                 Aspect="AspectFill">
+                                                 <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
+                                                 </Image.GestureRecognizers>
+                                          </Image>
+                                   </Border>
+                                   <Label Text="ออกจากระบบ"
+                                          TextColor="White"
+                                          FontAttributes="Bold"
+                                          FontSize="14"
+                                          HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                     </HorizontalStackLayout>
 
-        </VerticalStackLayout>
-    </ScrollView>
+              </VerticalStackLayout>
+       </ScrollView>
 </ContentPage>

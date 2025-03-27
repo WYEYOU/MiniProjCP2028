@@ -58,7 +58,7 @@ namespace MiniProject.ViewModel
                 using var stream = await FileSystem.OpenAppPackageFileAsync("user.json");
                 using var reader = new StreamReader(stream);
                 var json = await reader.ReadToEndAsync();
-                Debug.WriteLine(json);
+                // Debug.WriteLine(json);
 
                 // แปลง JSON เป็น object ของ User
                 var data = JsonConvert.DeserializeObject<User>(json);

@@ -492,3 +492,4 @@ C:\Users\MSI_\Documents\CrossPlatformMobileDev\MiniProject\MiniProject\obj\Debug
 C:\Users\MSI_\Documents\CrossPlatformMobileDev\MiniProject\MiniProject\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Mvvm.dll
 C:\Users\MSI_\Documents\CrossPlatformMobileDev\MiniProject\MiniProject\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
 C:\Users\MSI_\Documents\CrossPlatformMobileDev\MiniProject\MiniProject\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\user.json
+C:\Users\MSI_\Documents\CrossPlatformMobileDev\MiniProject\MiniProject\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MiniProject.sourcelink.json
