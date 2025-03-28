@@ -5,15 +5,116 @@
              xmlns:model="clr-namespace:MiniProject.Model"
              x:DataType="viewmodel:RegSearchViewModel"
              x:Class="MiniProject.Pages.RegisterSearchPage"
+             x:Name="RegisterSeacrhPage"
              Shell.NavBarIsVisible="False"
              Title="RegisterSearchPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label
-                Text="Welcome to RegisterSearchPage"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-        </VerticalStackLayout>
-    </ScrollView>
+       <ScrollView>
+              <VerticalStackLayout>
+                     <!-- Header Section -->
+                     <VerticalStackLayout HorizontalOptions="Fill"
+                                          Spacing="10"
+                                          BackgroundColor="#2D0C78"
+                                          Padding="20">
+                            <Image Source="logo_full.png"
+                                   HeightRequest="120"/>
+                            <Label Text="ยินดีต้อนรับนิสิตทุกท่านสู่ระบบบริการการศึกษา"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="25"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Welcome to Registration Cipher Logic University"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                     </VerticalStackLayout>
 
+                     <VerticalStackLayout Padding="20">
+                            <Label Text="ลงทะเบียนเรียน"
+                                   TextColor="#2D0C78"
+                                   FontAttributes="Bold"
+                                   FontSize="20"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <HorizontalStackLayout HorizontalOptions="Start"
+                                                   Spacing="5">
+                                   <Label Text="ปีการศึกษา"
+                                          TextColor="#1C0263"
+                                          FontAttributes="Bold"
+                                          FontSize="16"/>
+                                   <Label Text="{Binding User.Registration.AcademicYear}"
+                                          TextColor="#1C0263"
+                                          FontAttributes="Bold"
+                                          FontSize="16"/>
+                            </HorizontalStackLayout>
+
+                            <Label Text="รายวิชา"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   Margin="20,20,20,5"
+                                   TextColor="#1C0263"/>
+
+                            <SearchBar Placeholder="ค้นหารายวิชา..."
+                                       BackgroundColor="White"
+                                       TextColor="Black"
+                                       PlaceholderColor="Gray"
+                                       FontSize="16"
+                                       Margin="20,10,20,10"
+                                       Text="{Binding SearchText, Mode=TwoWay}"/>
+
+
+                            <CollectionView ItemsSource="{Binding Subjects}"
+                                            Margin="0,0,0,15">
+                                   <CollectionView.ItemTemplate>
+                                          <DataTemplate x:DataType="model:Course">
+                                                 <Border BackgroundColor="White"
+                                                         Stroke="LightGray"
+                                                         StrokeThickness="1"
+                                                         Padding="15"
+                                                         Margin="15">
+                                                        <Grid ColumnDefinitions="*,*,*,auto"
+                                                              Padding="10">
+                                                               <Label Text="{Binding CourseId}"
+                                                                      FontSize="16"
+                                                                      TextColor="#1C0263"
+                                                                      FontAttributes="Bold"
+                                                                      Grid.Column="0"
+                                                                      VerticalOptions="Center"/>
+                                                               <Label Text="{Binding CourseName}"
+                                                                      FontSize="16"
+                                                                      TextColor="#1C0263"
+                                                                      FontAttributes="Bold"
+                                                                      Grid.Column="1"
+                                                                      VerticalOptions="Center"
+                                                                      HorizontalOptions="Center"/>
+                                                               <Label Text="{Binding Credits, StringFormat='{0} นก.'}"
+                                                                      FontSize="16"
+                                                                      TextColor="#1C0263"
+                                                                      FontAttributes="Bold"
+                                                                      Grid.Column="2"
+                                                                      VerticalOptions="Center"
+                                                                      HorizontalOptions="Center"/>
+                                                               <Button Text="ลงทะเบียน"
+                                                                       BackgroundColor="#018786"
+                                                                       TextColor="White"
+                                                                       CornerRadius="5"
+                                                                       Padding="5,2"
+                                                                       Grid.Column="3"
+                                                                       VerticalOptions="Center"
+                                                                       HorizontalOptions="End"
+                                                                       Command="{Binding Source={x:Reference RegisterSeacrhPage}, Path=BindingContext.RegisterCourseCommand}"
+                                                                       CommandParameter="{Binding}"/>
+                                                        </Grid>
+                                                 </Border>
+                                          </DataTemplate>
+                                   </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                     </VerticalStackLayout>
+
+              </VerticalStackLayout>
+       </ScrollView>
 </ContentPage>
