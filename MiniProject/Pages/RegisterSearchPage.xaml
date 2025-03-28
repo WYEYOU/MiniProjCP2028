@@ -7,10 +7,13 @@
              x:Class="MiniProject.Pages.RegisterSearchPage"
              Shell.NavBarIsVisible="False"
              Title="RegisterSearchPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to RegisterSearchPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Text="Welcome to RegisterSearchPage"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

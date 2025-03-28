@@ -6,11 +6,216 @@
              x:DataType="viewmodel:RegViewModel"
              x:Class="MiniProject.Pages.RegisterPage"
              Shell.NavBarIsVisible="False"
-             Title="RegisterPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to RegisterPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="RegisterPage"
+             BackgroundColor="White">
+       <ScrollView>
+              <VerticalStackLayout>
+
+                     <!-- Header Section -->
+                     <VerticalStackLayout HorizontalOptions="Fill"
+                                          Spacing="10"
+                                          BackgroundColor="#2D0C78"
+                                          Padding="20">
+                            <Image Source="logo_full.png"
+                                   HeightRequest="120"/>
+                            <Label Text="ยินดีต้อนรับนิสิตทุกท่านสู่ระบบบริการการศึกษา"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="25"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Welcome to Registration Cipher Logic University"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                     </VerticalStackLayout>
+
+                     <VerticalStackLayout Padding="20">
+                            <Label Text="ข้อมูลการลงทะเบียนเรียน"
+                                   TextColor="#2D0C78"
+                                   FontAttributes="Bold"
+                                   FontSize="20"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <HorizontalStackLayout HorizontalOptions="Start"
+                                                   Spacing="5">
+                                   <Label Text="ปีการศึกษา"
+                                          TextColor="#1C0263"
+                                          FontAttributes="Bold"
+                                          FontSize="16"/>
+                                   <Label Text="{Binding User.Registration.AcademicYear}"
+                                          TextColor="#1C0263"
+                                          FontAttributes="Bold"
+                                          FontSize="16"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Section: รายวิชาของแต่ละเทอม -->
+                            <VerticalStackLayout Padding="10"
+                                                 Spacing="25">
+                                   <!-- เพิ่ม Spacing ระหว่างแต่ละภาคเรียน -->
+
+                                   <!-- Term 1 -->
+                                   <Label Text="ภาคเรียนที่ 1"
+                                          FontSize="16"
+                                          FontAttributes="Bold"
+                                          TextColor="#1C0263"/>
+                                   <CollectionView ItemsSource="{Binding Term1}"
+                                                   Margin="0,0,0,15">
+                                          <!-- เพิ่ม Margin ให้ CollectionView -->
+                                          <CollectionView.ItemTemplate>
+                                                 <DataTemplate x:DataType="model:Course">
+                                                        <Border BackgroundColor="White"
+                                                                Stroke="LightGray"
+                                                                StrokeThickness="1"
+                                                                Padding="15"
+                                                                Margin="15">
+                                                               <!-- เพิ่ม Margin -->
+                                                               <Grid ColumnDefinitions="*,*,*,auto"
+                                                                     Padding="10">
+                                                                      <Label Text="{Binding CourseId}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="0"
+                                                                             VerticalOptions="Center"/>
+                                                                      <Label Text="{Binding CourseName}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="1"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Label Text="{Binding Credits, StringFormat='{0} นก.'}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="2"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Label Text="A"
+                                                                             FontSize="16"
+                                                                             TextColor="#FF009C08"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="3"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                               </Grid>
+                                                        </Border>
+                                                 </DataTemplate>
+                                          </CollectionView.ItemTemplate>
+                                   </CollectionView>
+
+                                   <!-- Term 2 -->
+                                   <Label Text="ภาคเรียนที่ 2"
+                                          FontSize="16"
+                                          FontAttributes="Bold"
+                                          TextColor="#1C0263"/>
+                                   <CollectionView ItemsSource="{Binding Term2}"
+                                                   Margin="0,0,0,15">
+                                          <!-- เพิ่ม Margin ให้ CollectionView -->
+                                          <CollectionView.ItemTemplate>
+                                                 <DataTemplate x:DataType="model:Course">
+                                                        <Border BackgroundColor="White"
+                                                                Stroke="LightGray"
+                                                                StrokeThickness="1"
+                                                                Padding="15"
+                                                                Margin="15">
+                                                               <!-- เพิ่ม Margin -->
+                                                               <Grid ColumnDefinitions="*,*,*,auto"
+                                                                     Padding="10">
+                                                                      <Label Text="{Binding CourseId}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="0"
+                                                                             VerticalOptions="Center"/>
+                                                                      <Label Text="{Binding CourseName}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="1"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Label Text="{Binding Credits, StringFormat='{0} นก.'}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="2"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Label Text="A"
+                                                                             FontSize="16"
+                                                                             TextColor="#FF009C08"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="3"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                               </Grid>
+                                                        </Border>
+                                                 </DataTemplate>
+                                          </CollectionView.ItemTemplate>
+                                   </CollectionView>
+
+                                   <!-- Term 3 -->
+                                   <Label Text="ภาคเรียนที่ 3"
+                                          FontSize="16"
+                                          FontAttributes="Bold"
+                                          TextColor="#1C0263"/>
+                                   <CollectionView ItemsSource="{Binding Term3}"
+                                                   Margin="0,0,0,15">
+                                          <!-- เพิ่ม Margin ให้ CollectionView -->
+                                          <CollectionView.ItemTemplate>
+                                                 <DataTemplate x:DataType="model:Course">
+                                                        <Border BackgroundColor="White"
+                                                                Stroke="LightGray"
+                                                                StrokeThickness="1"
+                                                                Padding="15"
+                                                                Margin="15">
+                                                               <!-- เพิ่ม Margin -->
+                                                               <Grid ColumnDefinitions="*,*,*,auto"
+                                                                     Padding="10">
+                                                                      <Label Text="{Binding CourseId}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="0"
+                                                                             VerticalOptions="Center"/>
+                                                                      <Label Text="{Binding CourseName}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="1"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Label Text="{Binding Credits, StringFormat='{0} นก.'}"
+                                                                             FontSize="16"
+                                                                             TextColor="#1C0263"
+                                                                             FontAttributes="Bold"
+                                                                             Grid.Column="2"
+                                                                             VerticalOptions="Center"
+                                                                             HorizontalOptions="Center"/>
+                                                                      <Button Text="ถอนวิชาเรียน"
+                                                                              BackgroundColor="#FFA30101"
+                                                                              TextColor="White"
+                                                                              CornerRadius="5"
+                                                                              Padding="5,2"
+                                                                              Grid.Column="3"
+                                                                              VerticalOptions="Center"
+                                                                              HorizontalOptions="End"
+                                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegViewModel}}, Path=WithdrawCommand}"
+                                                                              CommandParameter="{Binding}"/>
+
+                                                               </Grid>
+                                                        </Border>
+                                                 </DataTemplate>
+                                          </CollectionView.ItemTemplate>
+                                   </CollectionView>
+
+                            </VerticalStackLayout>
+                     </VerticalStackLayout>
+              </VerticalStackLayout>
+       </ScrollView>
 </ContentPage>

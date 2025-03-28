@@ -5,6 +5,7 @@
              xmlns:model="clr-namespace:MiniProject.Model"
              x:DataType="viewmodel:HomeViewModel"
              x:Class="MiniProject.Pages.HomePage"
+             x:Name="RegisterPage"
              Shell.NavBarIsVisible="False"
              Title="HomePage"
              BackgroundColor="#2D0C78">
